@@ -1,0 +1,43 @@
+import java.io.BufferedInputStream;
+import java.util.Scanner;
+
+
+public class CompareArray {
+
+	/**
+	 * 求输入的数组的任意两个数的绝对值之和最小的值
+	 * A[n],求ans=min(|A[i]+A[j]|)
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner sc=new Scanner(new BufferedInputStream(System.in));
+
+while(sc.hasNext()){
+	int n=sc.nextInt();
+	int[] inputArr=new int[n];
+	
+	for(int i=0;i<n;i++){
+		inputArr[i]=sc.nextInt();
+			}
+	
+	System.out.println(minAbsoluteValue(inputArr));
+}
+	sc.close();
+	
+	}
+	
+	public static int minAbsoluteValue(int[] inputArr){
+		int ans=Math.abs(2*inputArr[0]);
+		
+		for(int i=0;i<inputArr.length;i++){
+			for(int j=0;j<inputArr.length;j++){
+				if(ans>Math.abs(inputArr[i]+inputArr[j])){
+					ans=Math.abs(inputArr[i]+inputArr[j]);
+				}
+			}
+		}
+		return ans;
+	}
+
+}
